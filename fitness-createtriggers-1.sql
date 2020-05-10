@@ -40,3 +40,17 @@ BEGIN
 END
 GO
 
+CREATE TRIGGER INVOICES_AFTER_INSERT
+ON INVOICES
+AFTER INSERT
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	UPDATE invoices
+	set price = (select price from PRODUCTS where ID=(select productid from inserted))*(select quantity from inserted)
+	where id=(select id from inserted)
+
+END
+GO
+

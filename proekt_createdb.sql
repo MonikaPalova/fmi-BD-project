@@ -3,6 +3,7 @@ GO
 USE fitness
 GO
 
+
 ----- Create Tables -----
 
 CREATE TABLE PRODUCTS (
@@ -73,7 +74,7 @@ create table invoices(
  productid int not null,
  supplier VARCHAR(64) not null,
  quantity int not null,
- price float not null
+ price float not null default 0
 );
 
 ------Constraints-----
@@ -131,6 +132,15 @@ INSERT INTO PRODUCTS (NAME, DESCRIPTION, PRICE, QUANTITY, EXPIRYDATE)
 INSERT INTO PRODUCTS (NAME,DESCRIPTION,PRICE,QUANTITY,EXPIRYDATE)
   VALUES ('Myprotein Impact Whey','A whey protein - chocolate brownie',34.00,15,'2024/1/1');
 
+INSERT INTO PRODUCTS (NAME, DESCRIPTION, PRICE, QUANTITY, EXPIRYDATE)
+  VALUES ('Pure nutrition - hydro 100', NULL, 72.00, 10, '2021/4/3');
+
+INSERT INTO PRODUCTS (NAME, DESCRIPTION, PRICE, QUANTITY, EXPIRYDATE)
+  VALUES ('SAN Performance Creatine 600gr', 'For muscle power and energy', 61.00, 7, '2021/3/10');
+
+INSERT INTO PRODUCTS (NAME,DESCRIPTION,PRICE,QUANTITY,EXPIRYDATE)
+  VALUES ('Xcore Hydro Fusion 1kg','Rich on vitamins',66.00,5,'2023/1/1');
+
 
 
 
@@ -155,19 +165,19 @@ INSERT INTO CLIENTS VALUES ('Angel Manahilov', 'achomustacho@gmail.com', '081725
 
 
 
-INSERT INTO PURCHASES VALUES (1, 2, 7,10, DEFAULT);
+INSERT INTO PURCHASES VALUES (1, 2, 7, DEFAULT);
 
-INSERT INTO PURCHASES VALUES (1, 4, 2,11, DEFAULT);
+INSERT INTO PURCHASES VALUES (1, 4, 2, DEFAULT);
 
-INSERT INTO PURCHASES VALUES (5, 1, 3,12, DEFAULT);
+INSERT INTO PURCHASES VALUES (5, 1, 3, DEFAULT);
 
-INSERT INTO PURCHASES VALUES (3, 3, 3,12, DEFAULT);
+INSERT INTO PURCHASES VALUES (3, 3, 3, DEFAULT);
 
-INSERT INTO PURCHASES VALUES (2, 7, 5,12, DEFAULT);
+INSERT INTO PURCHASES VALUES (2, 7, 5, DEFAULT);
 
-INSERT INTO PURCHASES VALUES (4, 2, 1,12.5, DEFAULT);
+INSERT INTO PURCHASES VALUES (4, 2, 1, DEFAULT);
 
-INSERT INTO PURCHASES VALUES (5, 8, 4,12, DEFAULT);
+INSERT INTO PURCHASES VALUES (5, 8, 4, DEFAULT);
 
 
 
@@ -239,3 +249,12 @@ INSERT INTO SUBSCRIPTIONS VALUES (8, 2, 2, '2021/1/10')
 
 INSERT INTO SUBSCRIPTIONS VALUES (6, 3, 2, '2020/10/10')
 
+
+insert into invoices(productid,supplier,quantity) values(1,'ReadyForLife',30)
+insert into invoices(productid,supplier,quantity) values(11,'ReadyForLife',15)
+insert into invoices(productid,supplier,quantity) values(10,'ReadyForLife',20)
+insert into invoices(productid,supplier,quantity) values(9,'ReadyForLife',10)
+insert into invoices(productid,supplier,quantity) values(5,'MyHealth',100)
+insert into invoices(productid,supplier,quantity) values(11,'MyHealth',80)
+insert into invoices(productid,supplier,quantity) values(3,'FitneaHrani',20)
+insert into invoices(productid,supplier,quantity) values(2,'FitnesHrani',28)
