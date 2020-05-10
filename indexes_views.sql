@@ -35,7 +35,7 @@ select id,name,phonenumber,discountonbar
 from CLIENTS
 where DISCOUNTONBAR>0;
 
--------------------------indexes-------------------------
+-------------------------indeces-------------------------
 
 create index idx_clients_info
 on clients(id,phonenumber);
