@@ -99,7 +99,7 @@ add constraint subs_instructorid_fk foreign key(instructorid) references employe
 Alter table subscriptions
 add constraint subs_typeid_fk foreign key(typeid) references subscriptiontypes(id);
 
-ALTER TABLE SUBSCRIPTIONS
+ALTER TABLE products
 ADD CONSTRAINT products_positive_quantity CHECK (quantity>0)
 
 ALTER TABLE INVOICES
