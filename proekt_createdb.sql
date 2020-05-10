@@ -10,7 +10,7 @@ CREATE TABLE PRODUCTS (
  NAME VARCHAR(64) NOT NULL,
  DESCRIPTION VARCHAR(MAX),
  PRICE FLOAT NOT NULL,
- QUANTITY FLOAT,
+ QUANTITY INT,
  EXPIRYDATE DATE
 );
 
@@ -98,6 +98,12 @@ add constraint subs_instructorid_fk foreign key(instructorid) references employe
 
 Alter table subscriptions
 add constraint subs_typeid_fk foreign key(typeid) references subscriptiontypes(id);
+
+ALTER TABLE SUBSCRIPTIONS
+ADD CONSTRAINT products_positive_quantity CHECK (quantity>0)
+
+ALTER TABLE INVOICES
+ADD CONSTRAINT invoices_positive_quantity CHECK (quantity>0)
 
 ------------Fill tables -------------------------
 
